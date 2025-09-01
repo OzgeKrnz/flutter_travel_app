@@ -4,8 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:travel_app/auth/models/trip.dart';
 import 'package:travel_app/auth/services/json_load_service.dart';
 
-//TODO: - load json, track favorites, list/grid selection, filters
-
 enum ViewMode { list, grid }
 
 class HomeController {
@@ -66,7 +64,6 @@ class HomeController {
   void toggleView() {
     viewMode = viewMode == ViewMode.list ? ViewMode.grid : ViewMode.list;
   }
-
   List<Trip> filteredTrips() {
     return _all.where((t) {
       final cty = country == null || t.country == country;
