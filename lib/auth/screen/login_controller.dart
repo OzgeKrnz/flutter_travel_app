@@ -5,8 +5,6 @@ import 'package:travel_app/auth/services/auth_service.dart';
 //Login Controller
 
 class LoginController {
-  final AuthService _authService;
-  LoginController(this._authService);
 
   final ValueNotifier<bool> isLoading = ValueNotifier(false);
   final ValueNotifier<String?> error = ValueNotifier(null);

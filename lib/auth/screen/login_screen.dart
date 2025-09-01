@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/auth/services/auth_service.dart';
 import 'package:travel_app/auth/screen/login_controller.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,7 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = LoginController(AuthService());
+    _controller = LoginController();
   }
 
   @override
