@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/auth/services/auth_service.dart';
 import 'package:travel_app/auth/screen/login_controller.dart';

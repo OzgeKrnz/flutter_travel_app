@@ -30,16 +30,16 @@ class GlassSurface extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.white.withOpacity(opacity + 0.27),
-                Colors.white.withOpacity(opacity),
+                Colors.white.withValues(alpha: opacity + 0.27),
+                Colors.white.withValues(alpha: opacity),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
-            border: Border.all(color: Colors.white.withOpacity(0.6), width: 1),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.6), width: 1),
             borderRadius: BorderRadius.circular(radius),
             boxShadow: elevate
-                ? [BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 20, offset: const Offset(0, 12))]
+                ? [BoxShadow(color: Colors.black.withValues(alpha: 0.08), blurRadius: 20, offset: const Offset(0, 12))]
                 : null,
           ),
           child: child,

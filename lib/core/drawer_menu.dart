@@ -16,8 +16,6 @@ class _DrawerMenuState extends State<DrawerMenu> {
   bool gridView = true; // sağ üstte list/grid için
   final _scaffoldKey = GlobalKey<ScaffoldState>(); 
 
-  final _pages = const [HomeScreen(), ProfileScreen()];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,16 +38,16 @@ class _DrawerMenuState extends State<DrawerMenu> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Colors.white.withOpacity(0.55),
-                          Colors.white.withOpacity(0.25),
+                          Colors.white.withValues(alpha: 0.55),
+                          Colors.white.withValues(alpha: 0.25),
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
-                      border: Border.all(color: Colors.white.withOpacity(0.6), width: 1),
+                      border: Border.all(color: Colors.white.withValues(alpha: 0.6), width: 1),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.08),
+                          color: Colors.black.withValues(alpha: 0.08),
                           blurRadius: 24,
                           offset: const Offset(0, 12),
                         )
@@ -110,14 +108,14 @@ class _GlassMenu extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
-              color: active ? Colors.white.withOpacity(0.55) : Colors.white.withOpacity(0.28),
+              color: active ? Colors.white.withValues(alpha: 0.55) : Colors.white.withValues(alpha: 0.28),
               border: Border.all(
-                color: active ? Colors.white.withOpacity(0.9) : Colors.white.withOpacity(0.5),
+                color: active ? Colors.white.withValues(alpha: 0.9) : Colors.white.withValues(alpha: 0.5),
               ),
               boxShadow: active
                   ? [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.07),
+                        color: Colors.black.withValues(alpha: 0.07),
                         blurRadius: 18,
                         offset: const Offset(0, 8),
                       )
@@ -130,7 +128,7 @@ class _GlassMenu extends StatelessWidget {
                   width: 36,
                   height: 36,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withValues(alpha: 0.9),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(icon, size: 20),
@@ -162,7 +160,7 @@ class _GlassMenu extends StatelessWidget {
                 width: 36,
                 height: 36,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(Icons.ac_unit, size: 20),
@@ -188,7 +186,7 @@ class _GlassMenu extends StatelessWidget {
         const SizedBox(height: 12),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Divider(color: Colors.white.withOpacity(0.6)),
+          child: Divider(color: Colors.white.withValues(alpha: 0.6)),
         ),
         item(
           icon: Icons.logout_rounded,

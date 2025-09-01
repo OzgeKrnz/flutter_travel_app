@@ -43,9 +43,9 @@ class GlassTripCard extends StatelessWidget {
               children: [
                 Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 4),
-                Text(subtitle, style: TextStyle(color: Colors.black.withOpacity(0.75))),
+                Text(subtitle, style: TextStyle(color: Colors.black.withValues(alpha: 0.75))),
                 const SizedBox(height: 6),
-                Text(dateRange, style: TextStyle(color: Colors.black.withOpacity(0.65), fontSize: 12)),
+                Text(dateRange, style: TextStyle(color: Colors.black.withValues(alpha: 0.65), fontSize: 12)),
                 const SizedBox(height: 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

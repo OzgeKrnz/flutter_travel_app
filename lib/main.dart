@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:travel_app/auth/screen/login_screen.dart';
 import 'package:travel_app/core/drawer_menu.dart';
-import 'package:travel_app/home/home_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
