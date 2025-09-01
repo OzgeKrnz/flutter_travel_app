@@ -5,7 +5,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   static final GoogleSignIn _googleSignIn = GoogleSignIn.instance;
+
   static bool isInitialize = false;
+  
   static Future<void> initSignIn() async {
     if (!isInitialize) {
       await _googleSignIn.initialize(
@@ -20,12 +22,9 @@ class AuthService {
   static Future<UserCredential?> signInWithGoogle() async {
     try {
       await initSignIn();
-      final GoogleSignInAccount? account = await _googleSignIn.authenticate();
-      if (account == null) {
-        return null;
-      }
+      final GoogleSignInAccount account = await _googleSignIn.authenticate();
 
-      final GoogleSignInAuthentication auth = await account.authentication;
+      final GoogleSignInAuthentication auth = account.authentication;
       final credential = GoogleAuthProvider.credential(
         idToken: auth.idToken,
       );
@@ -63,7 +62,7 @@ class AuthService {
       await _auth.signOut();
     } catch (e) {
       print('Error signing out: $e');
-      throw e;
+      rethrow;
     }
   }
 
