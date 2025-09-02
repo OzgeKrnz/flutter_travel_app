@@ -5,7 +5,7 @@ import 'package:travel_app/home/home_controller.dart';
 import 'package:travel_app/core/image_render.dart';
 import 'package:travel_app/shared/glass_surface.dart';
 
-import 'package:travel_app/core/filter_bar';
+import 'package:travel_app/core/filter_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, this.onOpenMenu});
