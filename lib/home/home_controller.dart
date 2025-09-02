@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:travel_app/auth/models/trip.dart';
+import 'package:travel_app/models/trip.dart';
 import 'package:travel_app/auth/services/json_load_service.dart';
 
 enum ViewMode { list, grid }

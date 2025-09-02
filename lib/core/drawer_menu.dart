@@ -14,19 +14,19 @@ class DrawerMenu extends StatefulWidget {
 class _DrawerMenuState extends State<DrawerMenu> {
   int _index = 0;
   bool gridView = true; // sağ üstte list/grid için
-  final _scaffoldKey = GlobalKey<ScaffoldState>(); 
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       key: _scaffoldKey,
       drawerEnableOpenDragGesture: true,
       drawer: SizedBox(
         width: 290,
         child: Drawer(
           elevation: 0,
-          backgroundColor: Colors.transparent, // önemli
+          backgroundColor: Colors.transparent, 
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(14),
@@ -64,14 +64,34 @@ class _DrawerMenuState extends State<DrawerMenu> {
                         if (mounted) Navigator.pop(context);
                       },
                     ),
+                    
                   ),
+                
                 ),
               ),
             ),
           ),
         ),
       ),
-     body: _index == 0
+      appBar: AppBar(
+
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+        ),
+        title: Text(
+          _index == 0 ? 'Trips' : 'Profile',
+          style: const TextStyle(
+            fontSize: 26, 
+            fontWeight: FontWeight.bold,
+            letterSpacing: 0.5,
+          ),
+        ),
+        centerTitle: false,
+
+      ),
+
+     body: _index == 0 
        ? HomeScreen(
             onOpenMenu: () => _scaffoldKey.currentState?.openDrawer(), 
            )
