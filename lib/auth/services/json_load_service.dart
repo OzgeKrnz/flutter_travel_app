@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:travel_app/auth/models/trip.dart';
+import 'package:travel_app/models/trip.dart';
 
 
 class JsonLoader {

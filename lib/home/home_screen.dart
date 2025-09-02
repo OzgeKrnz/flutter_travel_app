@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:travel_app/auth/models/trip.dart';
+import 'package:travel_app/models/trip.dart';
 import 'package:travel_app/home/home_controller.dart';
 import 'package:travel_app/core/image_render.dart';
 import 'package:travel_app/shared/glass_surface.dart';
@@ -43,11 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
     final trips = _c.filteredTrips();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Trips'),
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: ()=> widget.onOpenMenu?.call(),
-        ),
         actions: [
           IconButton(
             onPressed: () {
