@@ -5,7 +5,6 @@ import 'package:travel_app/models/trip.dart';
 
 class JsonLoader {
   static Future<List<Trip>> loadTrips() async {
-    // dosya adını travel.json yap
     final raw = await rootBundle.loadString("assets/travels.json");
     final List<dynamic> list = json.decode(raw) as List<dynamic>;
     return list

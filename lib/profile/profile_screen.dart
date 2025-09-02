@@ -58,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 value: fullName,
               ),
               const SizedBox(height: 12),
-              GlassInfoTile(
+              GlassInfoTile( 
                 icon: Icons.event_available_rounded,
                 title: 'Hesap Oluşturma',
                 value: createdAt,

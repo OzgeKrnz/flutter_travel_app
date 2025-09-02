@@ -15,7 +15,6 @@ class _DrawerMenuState extends State<DrawerMenu> {
   int _index = 0;
   bool gridView = true; // sağ üstte list/grid için
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  final _screens = const [HomeScreen(), ProfileScreen()];
 
 
   @override
