@@ -5,6 +5,8 @@ import 'package:travel_app/home/home_controller.dart';
 import 'package:travel_app/core/image_render.dart';
 import 'package:travel_app/shared/glass_surface.dart';
 
+import 'package:travel_app/core/filter_bar.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, this.onOpenMenu});
   final VoidCallback? onOpenMenu;
@@ -19,6 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
   late final String _uid;
   late final HomeController _c;
 
+
+  
   @override
   void initState() {
     super.initState();
@@ -41,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final trips = _c.filteredTrips();
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -58,25 +63,61 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: trips.isEmpty
-          ? const Center(child: CircularProgressIndicator())
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
+            child: FilterBar(
+              filter: _c.filter, 
+              countries: _c.countries,
+              regions: _c.regions, 
+              categories: _c.categories,
+              onClear: () => setState(_c.clearFilter),
+              onCountry: (v) => setState(() => _c.setCountry(v)),
+              onRegion: (v) => setState(() => _c.setRegion(v)),
+              onCategory: (v) => setState(() => _c.setCategory(v)),
+              onFavorites: (sel) => setState(() => _c.setOnlyFavorites(sel)),
+              onPickDate: () async {
+                final range = await showDateRangePicker(
+                  context: context,
+                  firstDate: DateTime(2015),
+                  lastDate: DateTime(2100),
+                  initialDateRange: _c.filter.dateRange,
+                  helpText: 'Select trip date range',
+                  
+                );
+                if (!context.mounted) return;
+                if (range != null) setState(() => _c.setDateRange(range));
+              },
+            ),
+          ),
+    Expanded(
+      child: _c.allTrips.isEmpty
+      ? const Center(child: CircularProgressIndicator())
+      : (trips.isEmpty
+          //filtre eslesmediyse
+          ? const Center(child: Text('No result, please clear the filters.'))
+         //diger
           : (_c.viewMode == ViewMode.list
-                ? _TripList(
-                    trips: trips,
-                    isFav: _c.isFav,
-                    onFav: (t) async {
-                      await _c.toggleFavorite(_uid, t);
-                      setState(() {});
-                    },
-                  )
-                : _TripGrid(
-                    trips: trips,
-                    isFav: _c.isFav,
-                    onFav: (t) async {
-                      await _c.toggleFavorite(_uid, t);
-                      setState(() {});
-                    },
-                  )),
+              ? _TripList(
+                  trips: trips,
+                  isFav: _c.isFav,
+                  onFav: (t) async {
+                    await _c.toggleFavorite(_uid, t);
+                    setState(() {});
+                  },
+                )
+              : _TripGrid(
+                  trips: trips,
+                  isFav: _c.isFav,
+                  onFav: (t) async {
+                    await _c.toggleFavorite(_uid, t);
+                    setState(() {});
+                  },
+                ))),
+            ),
+        ],
+      ),
     );
   }
 }

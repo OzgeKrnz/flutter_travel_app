@@ -25,7 +25,7 @@ class Trip {
     return Trip(
       id: json["id"] as String,
       title: json["title"] as String,
-      country: json["title"] as String,
+      country: json["country"] as String,
       region: json["region"] as String,
       startDate: DateTime.parse(json["startDate"] as String),
       endDate: DateTime.parse(json["endDate"] as String),
