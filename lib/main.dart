@@ -26,7 +26,16 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.transparent,
         drawerTheme: const DrawerThemeData(scrimColor: Colors.black26),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,  
+          surfaceTintColor: Colors.transparent, 
+          elevation: 0,
+          toolbarHeight: 34,
+          centerTitle: true,
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black
+          ),
         ),
       ),
 
