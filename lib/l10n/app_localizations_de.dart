@@ -224,4 +224,24 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get filter_all => 'Alle';
+
+  @override
+  String get login_title => 'Anmeldung';
+
+  @override
+  String get login_signin_google => 'Mit Google anmelden';
+
+  @override
+  String login_welcome(Object name) {
+    return 'Willkommen $name';
+  }
+
+  @override
+  String get login_welcome_generic => 'Willkommen';
+
+  @override
+  String get login_cancelled => 'Vorgang abgebrochen';
+
+  @override
+  String get login_failed => 'Anmeldung fehlgeschlagen';
 }

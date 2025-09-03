@@ -89,7 +89,15 @@
   "filter_date": "Tarih",
   "filter_favorites": "Favoriler",
   "filter_clear": "Temizle",
-  "filter_all": "Tümü"
+  "filter_all": "Tümü",
+
+  "login_title": "Login",
+  "login_signin_google": "Sign in with Google",
+  "login_welcome": "Welcome {name}",
+  "@login_welcome": { "placeholders": { "name": {} } },
+  "login_welcome_generic": "Welcome",
+  "login_cancelled": "Sign-in cancelled",
+  "login_failed": "Sign-in failed"
 
 
 }

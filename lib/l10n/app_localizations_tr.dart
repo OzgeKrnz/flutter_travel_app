@@ -220,4 +220,24 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get filter_all => 'Tümü';
+
+  @override
+  String get login_title => 'Login';
+
+  @override
+  String get login_signin_google => 'Sign in with Google';
+
+  @override
+  String login_welcome(Object name) {
+    return 'Welcome $name';
+  }
+
+  @override
+  String get login_welcome_generic => 'Welcome';
+
+  @override
+  String get login_cancelled => 'Sign-in cancelled';
+
+  @override
+  String get login_failed => 'Sign-in failed';
 }

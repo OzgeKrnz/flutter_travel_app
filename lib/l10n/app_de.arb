@@ -90,7 +90,15 @@
   "filter_date": "Datum",
   "filter_favorites": "Favoriten",
   "filter_clear": "Zurücksetzen",
-  "filter_all": "Alle"
+  "filter_all": "Alle",
+
+  "login_title": "Anmeldung",
+  "login_signin_google": "Mit Google anmelden",
+  "login_welcome": "Willkommen {name}",
+  "@login_welcome": { "placeholders": { "name": {} } },
+  "login_welcome_generic": "Willkommen",
+  "login_cancelled": "Vorgang abgebrochen",
+  "login_failed": "Anmeldung fehlgeschlagen"
 
 
 }

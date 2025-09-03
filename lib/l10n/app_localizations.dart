@@ -519,6 +519,42 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Alle'**
   String get filter_all;
+
+  /// No description provided for @login_title.
+  ///
+  /// In de, this message translates to:
+  /// **'Anmeldung'**
+  String get login_title;
+
+  /// No description provided for @login_signin_google.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Google anmelden'**
+  String get login_signin_google;
+
+  /// No description provided for @login_welcome.
+  ///
+  /// In de, this message translates to:
+  /// **'Willkommen {name}'**
+  String login_welcome(Object name);
+
+  /// No description provided for @login_welcome_generic.
+  ///
+  /// In de, this message translates to:
+  /// **'Willkommen'**
+  String get login_welcome_generic;
+
+  /// No description provided for @login_cancelled.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorgang abgebrochen'**
+  String get login_cancelled;
+
+  /// No description provided for @login_failed.
+  ///
+  /// In de, this message translates to:
+  /// **'Anmeldung fehlgeschlagen'**
+  String get login_failed;
 }
 
 class _AppLocalizationsDelegate
