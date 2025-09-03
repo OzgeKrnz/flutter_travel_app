@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/auth/screen/login_controller.dart';
+import 'package:travel_app/l10n/app_localizations.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -25,8 +26,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: Text(loc.login_title)),
       body: Center(
         child: ValueListenableBuilder<bool>(
           valueListenable: _controller.isLoading,
@@ -38,25 +41,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   final cred = await _controller.signInWithGoogle();
                   final user = cred?.user;
                   if (!mounted) return;
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        user != null
-                            ? 'Hoş geldin ${user.displayName}'
-                            : 'İptal edildi',
-                      ),
-                    ),
-                  );
+
+                  final msg =
+                      user?.displayName != null &&
+                          user!.displayName!.trim().isNotEmpty
+                      ? loc.login_welcome(user.displayName!)
+                      : loc.login_welcome_generic;
+
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text(msg)));
                 } catch (e) {
                   if (!mounted) return;
-                  final msg = _controller.error.value ?? 'Giriş başarısız';
+                  final msg = _controller.error.value ?? loc.login_failed;
                   ScaffoldMessenger.of(
                     context,
                   ).showSnackBar(SnackBar(content: Text(msg)));
                 }
               },
               icon: const Icon(Icons.login),
-              label: const Text('Google ile giriş'),
+              label: Text(loc.login_signin_google),
             );
           },
         ),

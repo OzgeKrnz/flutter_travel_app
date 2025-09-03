@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/auth/screen/login_screen.dart';
 import 'package:travel_app/shared/glass_info_tile.dart';
 import 'package:travel_app/shared/glass_logout_button.dart';
+import 'package:travel_app/l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
+
+
+
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -27,20 +32,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
     setState(() => _userData = snap.data() ?? {});
   }
 
-  String _fmtTs(dynamic ts) {
+  String _fmtTs(dynamic ts, BuildContext ctx) {
     if (ts == null) return '-';
     try {
       final d = (ts as Timestamp).toDate();
-      return '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
-    } catch (_) { return ts.toString(); }
+      final localeTag = Localizations.localeOf(ctx).toLanguageTag(); 
+      return DateFormat.yMMMd(localeTag).format(d);
+    } catch (_) {
+      return ts.toString();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     final user = FirebaseAuth.instance.currentUser;
     final fullName = (_userData?['fullName'] as String?) ?? (user?.displayName ?? '-');
-    final createdAt = _fmtTs(_userData?['createdAt']);
-    final lastLogin = _fmtTs(_userData?['lastLogin']);
+    final createdAt = _fmtTs(_userData?['createdAt'], context);
+    final lastLogin  = _fmtTs(_userData?['lastLogin'], context);
 
     return SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
@@ -54,19 +64,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 12),
               GlassInfoTile(
                 icon: Icons.person,
-                title: 'Ad Soyad',
+                title: loc.profile_full_name,
                 value: fullName,
               ),
               const SizedBox(height: 12),
               GlassInfoTile( 
                 icon: Icons.event_available_rounded,
-                title: 'Hesap Oluşturma',
+                title: loc.profile_created_at,
                 value: createdAt,
               ),
               const SizedBox(height: 12),
               GlassInfoTile(
                 icon: Icons.schedule_rounded,
-                title: 'Son Giriş',
+                title: loc.profile_last_login,
                 value: lastLogin,
               ),
               const SizedBox(height: 24),

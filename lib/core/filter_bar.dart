@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:travel_app/core/localization_helper.dart';
+import 'package:travel_app/l10n/app_localizations.dart';
 import 'package:travel_app/models/trip_filter.dart';
 
 class FilterBar extends StatelessWidget {
@@ -25,6 +28,15 @@ class FilterBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+    final tag = Localizations.localeOf(context).toLanguageTag();
+
+
+    final dateText = filter.dateRange == null
+        ? loc.filter_date
+        : '${DateFormat.yMMM(tag).format(filter.dateRange!.start)}'
+          ' – ${DateFormat.yMMM(tag).format(filter.dateRange!.end)}';
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
@@ -32,40 +44,41 @@ class FilterBar extends StatelessWidget {
           const SizedBox(width: 12),
 
           _DropPill(
-            hint: 'Country',
+            hint: loc.filter_country,
             items: countries,
             value: filter.country,
             onChanged: onCountry,
+            labelOf: (code) => localizedCountry(code, loc),
           ),
           const SizedBox(width: 8),
 
           _DropPill(
-            hint: 'Region',
+            hint: loc.filter_region,
             items: regions,
             value: filter.region,
             onChanged: onRegion,
+            labelOf: (code) => localizedRegion(code, loc),
+
           ),
           const SizedBox(width: 8),
 
           _DropPill(
-            hint: 'Category',
+            hint: loc.filter_category,
             items: categories,
             value: filter.category,
             onChanged: onCategory,
+            labelOf: (code) => localizedCategory(code, loc),
           ),
           const SizedBox(width: 8),
 
           _PillButton(
-            text: filter.dateRange == null
-                ? 'Date'
-                : '${filter.dateRange!.start.year}/${filter.dateRange!.start.month}'
-                  ' - ${filter.dateRange!.end.year}/${filter.dateRange!.end.month}',
+            text: dateText,
             onTap: onPickDate,
           ),
           const SizedBox(width: 8),
 
           _PillToggle(
-            text: 'Favorites',
+            text: loc.filter_favorites,
             selected: filter.onlyFavorites,
             onChanged: onFavorites,
           ),
@@ -76,7 +89,7 @@ class FilterBar extends StatelessWidget {
               filter.dateRange != null ||
               filter.onlyFavorites) ...[
             const SizedBox(width: 8),
-            _PillButton(text: 'Clear', onTap: () async => onClear()),
+            _PillButton(text: loc.filter_clear, onTap: () async => onClear()),
           ],
 
           const SizedBox(width: 12),
@@ -104,11 +117,11 @@ BoxConstraints get _pillConstraints =>
 BoxDecoration _pillDecoration(BuildContext context, {bool selected = false}) {
   final theme = Theme.of(context);
   final borderColor = selected
-      ? theme.colorScheme.primary.withOpacity(.45)
-      : theme.dividerColor.withOpacity(.5);
+      ? theme.colorScheme.primary.withValues(alpha: .45)
+      : theme.dividerColor.withValues(alpha: .5);
 
   return BoxDecoration(
-    color: selected ? theme.colorScheme.primary.withOpacity(.08) : Colors.white,
+    color: selected ? theme.colorScheme.primary.withValues(alpha: .08) : Colors.white,
     border: Border.all(color: borderColor),
     borderRadius: BorderRadius.circular(_kPillRadius),
   );
@@ -120,16 +133,20 @@ class _DropPill extends StatelessWidget {
   final List<String> items;
   final String? value;
   final ValueChanged<String?> onChanged;
+  final String Function(String)? labelOf;
 
   const _DropPill({
     required this.hint,
     required this.items,
     required this.value,
     required this.onChanged,
+    required this.labelOf,
   });
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return ConstrainedBox(
       constraints: _pillConstraints,
       child: Container(
@@ -150,10 +167,10 @@ class _DropPill extends StatelessWidget {
               ),
               value: (value == null || value!.isEmpty) ? null : value,
               items: [
-                const DropdownMenuItem<String>(
-                    value: '', child: Text('All')),
-                ...items.map((e) =>
-                    DropdownMenuItem<String>(value: e, child: Text(e))),
+                DropdownMenuItem<String>(
+                    value: '', child: Text(loc.filter_all)),
+                ...items.map((code) =>
+                    DropdownMenuItem<String>(value: code, child: Text(labelOf!(code)))),
               ],
               onChanged: (v) => onChanged((v ?? '').isEmpty ? null : v),
               borderRadius: BorderRadius.circular(_kPillRadius),

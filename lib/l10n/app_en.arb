@@ -1,0 +1,104 @@
+{
+  "@@locale": "en",
+
+  "country_DE": "Germany",
+  "country_AT": "Austria",
+  "country_CH": "Switzerland",
+
+  "category_CULTURE": "Culture",
+  "category_FESTIVAL": "Festival",
+  "category_ADVENTURE": "Adventure",
+  "category_ART": "Art",
+  "category_GASTRONOMY": "Gastronomy",
+  "category_NATURE": "Nature",
+  "category_HISTORY": "History",
+
+  "region_BERLIN": "Berlin",
+  "region_BAYERN": "Bavaria",
+  "region_WIEN": "Vienna",
+  "region_ZURICH": "Zurich",
+  "region_VALAIS": "Valais",
+  "region_BERN": "Bern",
+  "region_LUZERN": "Lucerne",
+  "region_HESSEN": "Hesse",
+  "region_SACHSEN": "Saxony",
+  "region_STEIERMARK": "Styria",
+  "region_VORARLBERG": "Vorarlberg",
+  "region_GENEVE": "Geneva",
+  "region_HAMBURG": "Hamburg",
+  "region_TIROL": "Tyrol",
+
+  "title_TRIP_BERLIN": "Trip to Berlin",
+  "desc_TRIP_BERLIN": "Explore museums, historical sites, and street art",
+
+  "title_TRIP_BAYERN": "Trip to Bavaria",
+  "desc_TRIP_BAYERN": "Discover traditions, nature, and historic towns",
+
+  "title_TRIP_WIEN": "Trip to Vienna",
+  "desc_TRIP_WIEN": "Coffee houses, classical music, and old-town charm",
+
+  "title_TRIP_ZURICH": "Trip to Zurich",
+  "desc_TRIP_ZURICH": "Explore the old town, art, and the lakeside promenade",
+
+  "title_TRIP_VALAIS": "Trip to Valais",
+  "desc_TRIP_VALAIS": "Alpine panoramas, hikes, and mountain villages",
+
+  "title_TRIP_BERN": "Trip to Bern",
+  "desc_TRIP_BERN": "UNESCO old town, Aare River, and museums",
+
+  "title_TRIP_LUZERN": "Trip to Lucerne",
+  "desc_TRIP_LUZERN": "Chapel Bridge, Lake Lucerne, and the old town",
+
+  "title_TRIP_HESSEN": "Trip to Hesse",
+  "desc_TRIP_HESSEN": "Half-timbered towns, museums, and local cuisine",
+
+  "title_TRIP_SACHSEN": "Trip to Saxony",
+  "desc_TRIP_SACHSEN": "Baroque architecture, art, and the Elbe valleys",
+
+  "title_TRIP_STEIERMARK": "Trip to Styria",
+  "desc_TRIP_STEIERMARK": "Vineyards, castles, and nature parks",
+
+  "title_TRIP_VORARLBERG": "Trip to Vorarlberg",
+  "desc_TRIP_VORARLBERG": "Alps, Lake Constance, and modern architecture",
+
+  "title_TRIP_GENEVE": "Trip to Geneva",
+  "desc_TRIP_GENEVE": "Lake Geneva, the old town, and the international district",
+
+  "title_TRIP_HAMBURG": "Trip to Hamburg",
+  "desc_TRIP_HAMBURG": "Harbor, Speicherstadt, and the Elbphilharmonie",
+
+  "title_TRIP_TIROL": "Trip to Tyrol",
+  "desc_TRIP_TIROL": "Mountain panoramas, hiking, and winter sports",
+
+  "home_title": "Trips",
+  "empty_no_results": "No result, please clear the filters.",
+  "help_pickDateRange": "Select trip date range",
+
+  "app_name": "Travel App",
+  "menu_home": "Home",
+  "menu_profile": "Profile",
+  "menu_logout": "Logout",
+  "profile_title": "Profile",
+
+  "profile_full_name": "Full name",
+  "profile_created_at": "Account created",
+  "profile_last_login": "Last sign-in",
+
+  "filter_country": "Country",
+  "filter_region": "Region",
+  "filter_category": "Category",
+  "filter_date": "Date",
+  "filter_favorites": "Favorites",
+  "filter_clear": "Clear",
+  "filter_all": "All",
+  
+  "login_title": "Login",
+  "login_signin_google": "Sign in with Google",
+  "login_welcome": "Welcome {name}",
+  "@login_welcome": { "placeholders": { "name": {} } },
+  "login_welcome_generic": "Welcome",
+  "login_cancelled": "Sign-in cancelled",
+  "login_failed": "Sign-in failed"
+
+
+}

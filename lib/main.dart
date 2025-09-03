@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart' show Intl;
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:travel_app/auth/screen/login_screen.dart';
 import 'package:travel_app/core/drawer_menu.dart';
+import 'package:travel_app/l10n/app_localizations.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  Intl.defaultLocale = 'de';
+  await initializeDateFormatting('de'); 
   runApp(const MyApp());
 }
 
@@ -40,6 +47,14 @@ class MyApp extends StatelessWidget {
       ),
 
       debugShowCheckedModeBanner: false,
+      locale: const Locale('de'),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+  ],
+  supportedLocales: const [Locale('de'), Locale('tr'), Locale('en')],
             builder: (context, child) {
         return Stack(
           children: [

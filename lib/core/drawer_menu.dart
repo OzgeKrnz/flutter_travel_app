@@ -1,7 +1,8 @@
-// DrawerMenu.dart (veya ilgili dosya)
+// DrawerMenu.dart
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:travel_app/l10n/app_localizations.dart';
 import 'package:travel_app/home/home_screen.dart';
 import 'package:travel_app/profile/profile_screen.dart';
 
@@ -13,12 +14,13 @@ class DrawerMenu extends StatefulWidget {
 
 class _DrawerMenuState extends State<DrawerMenu> {
   int _index = 0;
-  bool gridView = true; // sağ üstte list/grid için
+  bool gridView = true; 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Scaffold(
       key: _scaffoldKey,
       drawerEnableOpenDragGesture: true,
@@ -26,7 +28,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
         width: 290,
         child: Drawer(
           elevation: 0,
-          backgroundColor: Colors.transparent, 
+          backgroundColor: Colors.transparent,
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(14),
@@ -44,7 +46,10 @@ class _DrawerMenuState extends State<DrawerMenu> {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
-                      border: Border.all(color: Colors.white.withValues(alpha: 0.6), width: 1),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.6),
+                        width: 1,
+                      ),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withValues(alpha: 0.08),
@@ -64,9 +69,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                         if (mounted) Navigator.pop(context);
                       },
                     ),
-                    
                   ),
-                
                 ),
               ),
             ),
@@ -74,28 +77,23 @@ class _DrawerMenuState extends State<DrawerMenu> {
         ),
       ),
       appBar: AppBar(
-
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () => _scaffoldKey.currentState?.openDrawer(),
         ),
         title: Text(
-          _index == 0 ? 'Trips' : 'Profile',
+          _index == 0 ? loc.home_title : loc.profile_title,
           style: const TextStyle(
-            fontSize: 26, 
+            fontSize: 26,
             fontWeight: FontWeight.bold,
             letterSpacing: 0.5,
           ),
         ),
         centerTitle: false,
-
       ),
-
-     body: _index == 0 
-       ? HomeScreen(
-            onOpenMenu: () => _scaffoldKey.currentState?.openDrawer(), 
-           )
-        : const ProfileScreen(),
+      body: _index == 0
+          ? HomeScreen(onOpenMenu: () => _scaffoldKey.currentState?.openDrawer())
+          : const ProfileScreen(),
     );
   }
 }
@@ -113,6 +111,8 @@ class _GlassMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     Widget item({
       required IconData icon,
       required String label,
@@ -128,9 +128,13 @@ class _GlassMenu extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
-              color: active ? Colors.white.withValues(alpha: 0.55) : Colors.white.withValues(alpha: 0.28),
+              color: active
+                  ? Colors.white.withValues(alpha: 0.55)
+                  : Colors.white.withValues(alpha: 0.28),
               border: Border.all(
-                color: active ? Colors.white.withValues(alpha: 0.9) : Colors.white.withValues(alpha: 0.5),
+                color: active
+                    ? Colors.white.withValues(alpha: 0.9)
+                    : Colors.white.withValues(alpha: 0.5),
               ),
               boxShadow: active
                   ? [
@@ -171,7 +175,6 @@ class _GlassMenu extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.only(top: 12, bottom: 16),
       children: [
-        // Üst logo/başlık alanı
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
           child: Row(
@@ -186,20 +189,24 @@ class _GlassMenu extends StatelessWidget {
                 child: const Icon(Icons.ac_unit, size: 20),
               ),
               const SizedBox(width: 10),
-              const Text('Travel App', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              Text(
+                loc.app_name, 
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
             ],
           ),
         ),
 
         item(
           icon: Icons.home_rounded,
-          label: 'Home',
+          label: loc.menu_home,
           active: selected == 0,
           onTap: () => onSelect(0),
         ),
         item(
           icon: Icons.person_rounded,
-          label: 'Profile',
+          label: loc.menu_profile,
           active: selected == 1,
           onTap: () => onSelect(1),
         ),
@@ -210,7 +217,7 @@ class _GlassMenu extends StatelessWidget {
         ),
         item(
           icon: Icons.logout_rounded,
-          label: 'Logout',
+          label: loc.menu_logout, 
           active: false,
           onTap: onLogout,
         ),
