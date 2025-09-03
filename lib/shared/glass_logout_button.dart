@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:travel_app/l10n/app_localizations.dart';
 
 class GlassLogoutButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -7,6 +8,8 @@ class GlassLogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(18),
       child: BackdropFilter(
@@ -51,13 +54,13 @@ class GlassLogoutButton extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 12),
-                const Text(
-                  'Logout',
-                  style: TextStyle(
+                Text(
+                  loc.menu_logout, 
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
+                    ),
                   ),
-                ),
               ],
             ),
           ),

@@ -1,0 +1,95 @@
+{
+  "@@locale": "tr",
+
+  "country_DE": "Almanya",
+  "country_AT": "Avusturya",
+  "country_CH": "İsviçre",
+
+  "category_CULTURE": "Kültür",
+  "category_FESTIVAL": "Festival",
+  "category_ADVENTURE": "Macera",
+  "category_ART": "Sanat",
+  "category_GASTRONOMY": "Gastronomi",
+  "category_NATURE": "Doğa",
+  "category_HISTORY": "Tarih",
+
+  "region_BERLIN": "Berlin",
+  "region_BAYERN": "Bayern",
+  "region_WIEN": "Wien",
+  "region_ZURICH": "Zürich",
+  "region_VALAIS": "Valais",
+  "region_BERN": "Bern",
+  "region_LUZERN": "Luzern",
+  "region_HESSEN": "Hessen",
+  "region_SACHSEN": "Sachsen",
+  "region_STEIERMARK": "Steiermark",
+  "region_VORARLBERG": "Vorarlberg",
+  "region_GENEVE": "Genève",
+  "region_HAMBURG": "Hamburg",
+  "region_TIROL": "Tirol",
+
+  "title_TRIP_BERLIN": "Berlin'e Gezi",
+  "desc_TRIP_BERLIN": "Müzeler, tarihi yapılar ve sokak sanatı",
+
+  "title_TRIP_BAYERN": "Bavyera'ya Gezi",
+  "desc_TRIP_BAYERN": "Gelenekler, doğa ve tarihi kasabalar",
+
+  "title_TRIP_WIEN": "Viyana'ya Gezi",
+  "desc_TRIP_WIEN": "Kahvehaneler, klasik müzik ve eski şehir dokusu",
+
+  "title_TRIP_ZURICH": "Zürih'e Gezi",
+  "desc_TRIP_ZURICH": "Eski şehir, sanat ve göl kıyısı yürüyüş yolu",
+
+  "title_TRIP_VALAIS": "Valais'e Gezi",
+  "desc_TRIP_VALAIS": "Alp manzaraları, yürüyüşler ve dağ köyleri",
+
+  "title_TRIP_BERN": "Bern'e Gezi",
+  "desc_TRIP_BERN": "UNESCO eski şehir, Aare Nehri ve müzeler",
+
+  "title_TRIP_LUZERN": "Luzern'e Gezi",
+  "desc_TRIP_LUZERN": "Şapel Köprüsü, Luzern Gölü ve eski şehir",
+
+  "title_TRIP_HESSEN": "Hessen'e Gezi",
+  "desc_TRIP_HESSEN": "Yarım ahşap kasabalar, müzeler ve mutfak kültürü",
+
+  "title_TRIP_SACHSEN": "Saksonya'ya Gezi",
+  "desc_TRIP_SACHSEN": "Barok mimari, sanat ve Elbe vadileri",
+
+  "title_TRIP_STEIERMARK": "Steiermark'a Gezi",
+  "desc_TRIP_STEIERMARK": "Bağlar, kaleler ve doğa parkları",
+
+  "title_TRIP_VORARLBERG": "Vorarlberg'e Gezi",
+  "desc_TRIP_VORARLBERG": "Alpler, Konstanz Gölü ve modern mimari",
+
+  "title_TRIP_GENEVE": "Cenevre'ye Gezi",
+  "desc_TRIP_GENEVE": "Cenevre Gölü, eski şehir ve uluslararası bölge",
+
+  "title_TRIP_HAMBURG": "Hamburg'a Gezi",
+  "desc_TRIP_HAMBURG": "Liman, Speicherstadt ve Elbphilharmonie",
+
+  "title_TRIP_TIROL": "Tirol'a Gezi",
+  "desc_TRIP_TIROL": "Dağ manzaraları, yürüyüş ve kış sporları",
+
+  "home_title": "Seyahatler",
+  "empty_no_results": "Sonuç yok, lütfen filtreleri temizleyin.",
+  "help_pickDateRange": "Gezi tarih aralığını seçin",
+  "app_name": "Travel App",
+  "menu_home": "Ana Sayfa",
+  "menu_profile": "Profil",
+  "menu_logout": "Çıkış Yap",
+  "profile_title": "Profil",
+
+  "profile_full_name": "Ad Soyad",
+  "profile_created_at": "Hesap Oluşturma",
+  "profile_last_login": "Son Giriş",
+
+  "filter_country": "Ülke",
+  "filter_region": "Bölge",
+  "filter_category": "Kategori",
+  "filter_date": "Tarih",
+  "filter_favorites": "Favoriler",
+  "filter_clear": "Temizle",
+  "filter_all": "Tümü"
+
+
+}
