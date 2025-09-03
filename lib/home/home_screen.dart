@@ -5,7 +5,6 @@ import 'package:travel_app/l10n/app_localizations.dart';
 import 'package:travel_app/models/trip.dart';
 import 'package:travel_app/home/home_controller.dart';
 import 'package:travel_app/core/image_render.dart';
-import 'package:travel_app/models/trip_filter.dart';
 import 'package:travel_app/shared/glass_surface.dart';
 import 'package:travel_app/core/localization_helper.dart';
 import 'package:travel_app/core/filter_bar.dart';
@@ -61,8 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context);                
-    final trips = _c.filteredTrips() ?? const <Trip>[];    
-    final isLoading = !_ready || _c.allTrips == null;      
+    final trips = _c.filteredTrips() ;    
+    final isLoading = !_ready;      
 
     return Scaffold(
       appBar: AppBar(
@@ -84,10 +83,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
                   child: FilterBar(
-                    filter: _c.filter ?? const TripFilter(),
-                    countries: _c.countries ?? const <String>[],
-                    regions: _c.regions ?? const <String>[],
-                    categories: _c.categories ?? const <String>[],
+                    filter: _c.filter,
+                    countries: _c.countries ,
+                    regions: _c.regions ,
+                    categories: _c.categories ,
                     onClear: () => setState(_c.clearFilter),
                     onCountry: (v) => setState(() => _c.setCountry(v)),
                     onRegion: (v) => setState(() => _c.setRegion(v)),
@@ -98,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         context: context,
                         firstDate: DateTime(2015),
                         lastDate: DateTime(2100),
-                        initialDateRange: _c.filter?.dateRange,
+                        initialDateRange: _c.filter.dateRange,
                         helpText: loc!.help_pickDateRange,
                         locale: const Locale('de'), 
                         builder: (ctx, child) => Localizations.override(

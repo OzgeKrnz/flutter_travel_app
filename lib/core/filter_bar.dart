@@ -31,10 +31,6 @@ class FilterBar extends StatelessWidget {
     final loc = AppLocalizations.of(context)!;
     final tag = Localizations.localeOf(context).toLanguageTag();
 
-    // dropdown menu icerigi i18n
-    final countryItems  = {...countries.map((e) => toCountryCode(e)  ?? e)}.toList()..sort();
-    final regionItems   = {...regions.map((e)  => toRegionKey(e)     ?? e)}.toList()..sort();
-    final categoryItems = {...categories.map((e)=> toCategoryCode(e) ?? e)}.toList()..sort();
 
     final dateText = filter.dateRange == null
         ? loc.filter_date
